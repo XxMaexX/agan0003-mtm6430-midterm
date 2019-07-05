@@ -2,6 +2,7 @@
  <div id="navigation-view">
  <ul>
      <h1>My Vue App</h1>
+     <!-- navigation links for each page -->
  <li><router-link :to=" { name: 'usertestimonials' } ">Testimonials</router-link> </li>
  <li><router-link :to=" { name: 'contact' } ">Contact</router-link></li>
  <li><router-link :to=" { name: 'about' } ">About</router-link> </li>

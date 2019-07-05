@@ -15,14 +15,15 @@
 
   <div class="basicform">
     <h3>Leave us a Testimonials</h3>
+    <!-- main form for testimonials -->
 <el-form :model="ruleForm" :rules="rules" ref="ruleForm" class="demo-ruleForm" show="openDialog === false">
-
+     <!-- name text area for users to input -->
   <el-form-item prop="name" class="together"> <el-input v-model="ruleForm.name" placeholder="Mia Welsh"></el-input> </el-form-item>
-
+     <!-- position text area for users to input -->
   <el-form-item prop="position" class="together"> <el-input v-model="ruleForm.position" placeholder="Chef"></el-input> </el-form-item>
-
+     <!-- comment text area for users to input -->
   <el-form-item prop="desc"> <el-input type="textarea" v-model="ruleForm.desc" placeholder="Any tasty comments?"></el-input>  </el-form-item>
-
+    <!-- submit button for users once completed filling out the forms -->
   <el-button type="primary" @click="submitForm('ruleForm')">Submit</el-button>
 
 </el-form>
@@ -36,6 +37,7 @@
 import axios from 'axios'
 export default {
   data: function() {
+    // Name and Position limit of 50 words
     var wordCount = (rule, value, callback) => {
       if (value.split(' ').length >= 50) {
         callback(new Error('Oh ho! This is too sweet, subject can not be more than 50 words'));
@@ -43,6 +45,7 @@ export default {
         callback();
       }
     };
+    // Comment section limit of 120 words
     var wordCount2 = (rule, value, callback) => {
       if (value.split(' ').length >= 120) {
         callback(new Error('Too much sugar, subject can not be more than 120 words'));
@@ -57,6 +60,7 @@ export default {
         position: "",
         desc: ""
       },
+      // important message that will display for each text box if it's empty
         rules: {
           name: [
             { required: true, message: 'This is quite a jawbreaker, please input name!', trigger: 'blur' },
@@ -82,6 +86,7 @@ export default {
         },
       };
     },
+    // databse with axios
   methods: {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {

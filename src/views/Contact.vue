@@ -3,10 +3,12 @@
        <h1>Contact Us</h1>
     <div class="container">
     <div class="contact-container">
+      <!-- first column, information about location -->
       <div class="location">
         <h2>Address</h2>
         <p>{{ address1 }}<br>{{ address2 }}<br>{{ phoneNumber }}</p>
       </div>
+      <!-- second colum, information about hours -->
       <div class="hour" >
         <h2>Hours of operation</h2>
       <div class="hoursOperation">
@@ -24,6 +26,7 @@
 export default {
   data () {
     return {
+   // returning text in required area
       address1: "1685 Woodroffe Avenue,",
       address2: "Ottawa, Ontario. K2G1V8",
       phoneNumber: "613-727-423",
